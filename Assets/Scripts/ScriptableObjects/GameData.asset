@@ -15,7 +15,7 @@ MonoBehaviour:
   IsGameActive: 1
   CanShoot: 1
   ZRange: 10
-  ZInc: 0.1
+  ZInc: 0.12
   ArrowSpeed: 36
   ArrowRange: 10
   OnScoreChange:

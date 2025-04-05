@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: 9a174e55a3110874b886b068afa33fcf, type: 2}
+  target: {fileID: 576339421}
 --- !u!4 &133077739
 Transform:
   m_ObjectHideFlags: 0

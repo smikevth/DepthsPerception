@@ -29,10 +29,8 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit something");
         if(other.CompareTag("Target"))
         {
-            Debug.Log("hit target");
             //increment score and remove arrow on hit. add some hit feedback (particles/sfx) later
             gameData.Score++;
             RemoveArrow();
