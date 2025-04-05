@@ -19,7 +19,7 @@ public class Shoot : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if(gameData.IsGameActive && gameData.CanShoot)
+        if(context.performed && gameData.IsGameActive && gameData.CanShoot)
         {
             gameData.CanShoot = false;
             Instantiate(arrowPrefab, gameObject.transform.position, arrowPrefab.transform.rotation);

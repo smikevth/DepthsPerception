@@ -395,7 +395,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576339421}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 384646ad6e484a243a02cae02a0a5fb9, type: 3}
   m_Name: 
@@ -984,6 +984,7 @@ GameObject:
   - component: {fileID: 2075917821}
   - component: {fileID: 2075917826}
   - component: {fileID: 2075917825}
+  - component: {fileID: 2075917827}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
@@ -1108,7 +1109,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2075917827}
+        m_TargetAssemblyTypeName: ShooterMovement, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
     m_ActionName: 'Player/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
@@ -1190,6 +1203,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: 9a174e55a3110874b886b068afa33fcf, type: 2}
   arrowPrefab: {fileID: 1626743064915171980, guid: 78a68970c882c6c449a6b44ec438a8f5, type: 3}
+--- !u!114 &2075917827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075917820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85806921cda208a4b973bc48633833b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameData: {fileID: 11400000, guid: 9a174e55a3110874b886b068afa33fcf, type: 2}
 --- !u!1001 &1330692120825315232
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -300,11 +300,11 @@
                 },
                 {
                     "name": "",
-                    "id": "a88865ed-8a39-4b35-a086-ebe65c3c524a",
-                    "path": "<Keyboard>/anyKey",
+                    "id": "7ac84095-2f82-420f-ac69-78e15cbc370a",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
