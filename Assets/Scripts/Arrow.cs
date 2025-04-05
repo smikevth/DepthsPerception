@@ -3,10 +3,12 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     [SerializeField] GameData gameData;
+    Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rb = gameObject.GetComponent<Rigidbody>();
+        rb.AddForce(new Vector3(gameData.ArrowSpeed, 0.0f, 0.0f), ForceMode.Impulse);
     }
 
     // Update is called once per frame
@@ -15,7 +17,8 @@ public class Arrow : MonoBehaviour
         if(gameData.IsGameActive)
         {
             //move the arrow to the right
-            gameObject.transform.Translate(gameData.ArrowSpeed, 0.0f, 0.0f);
+            //gameObject.transform.Translate(gameData.ArrowSpeed, 0.0f, 0.0f);
+            
             //destroy off screen
             if(gameObject.transform.position.x >= gameData.ArrowRange)
             {
