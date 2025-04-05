@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     {
         gameData.IsGameActive = true; //start game
         gameData.CanShoot = true;
+        gameData.Score = 0;
     }
 
     // Update is called once per frame

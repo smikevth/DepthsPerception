@@ -22,7 +22,7 @@ public class Shoot : MonoBehaviour
         if(gameData.IsGameActive && gameData.CanShoot)
         {
             gameData.CanShoot = false;
-            Instantiate(arrowPrefab, gameObject.transform);
+            Instantiate(arrowPrefab, gameObject.transform.position, arrowPrefab.transform.rotation);
         }
     }
 }

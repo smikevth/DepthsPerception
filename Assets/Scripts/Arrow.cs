@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MoveForward : MonoBehaviour
+public class Arrow : MonoBehaviour
 {
     [SerializeField] GameData gameData;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,9 +19,27 @@ public class MoveForward : MonoBehaviour
             //destroy off screen
             if(gameObject.transform.position.x >= gameData.ArrowRange)
             {
-                gameData.CanShoot = true;
-                Destroy(gameObject);
+                RemoveArrow();
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("hit something");
+        if(other.CompareTag("Target"))
+        {
+            Debug.Log("hit target");
+            //increment score and remove arrow on hit. add some hit feedback (particles/sfx) later
+            gameData.Score++;
+            RemoveArrow();
+            
+        }
+    }
+
+    private void RemoveArrow()
+    {
+        gameData.CanShoot = true;
+        Destroy(gameObject);
     }
 }

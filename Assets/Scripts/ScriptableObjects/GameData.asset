@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   IsGameActive: 1
-  zRange: 10
-  zInc: 0.05
+  CanShoot: 0
+  ZRange: 10
+  ZInc: 0.1
+  ArrowSpeed: 0.5
+  ArrowRange: 10
+  OnScoreChange:
+    m_PersistentCalls:
+      m_Calls: []
