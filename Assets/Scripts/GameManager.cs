@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameData.IsGameActive = true; //start game
+        gameData.CanShoot = true;
     }
 
     // Update is called once per frame

@@ -18,9 +18,9 @@ public class MoveToAndFro : MonoBehaviour
         if(gameData.IsGameActive)
         {
             //if game is going, move the object back and forth on the z-axis
-            gameObject.transform.Translate(direction * gameData.zInc);
+            gameObject.transform.Translate(direction * gameData.ZInc);
 
-            if(Mathf.Abs(gameObject.transform.position.z) >= gameData.zRange)
+            if(Mathf.Abs(gameObject.transform.position.z) >= gameData.ZRange)
             {
                 //flip direction at end of range
                 direction *= -1;
