@@ -22,4 +22,17 @@ public class GameData : ScriptableObject
             OnScoreChange?.Invoke();
         }
     }
+
+    public float MaxTime = 60.0f;
+    public UnityEvent OnTimeChange;
+    private float currentTime = 0;
+    public float CurrentTime
+    {
+        get => currentTime;
+        set
+        {
+            currentTime = value;
+            OnTimeChange?.Invoke();
+        }
+    }
 }

@@ -14,15 +14,22 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         targetPos = target.transform.position;
-        gameData.IsGameActive = true; //start game
-        gameData.CanShoot = true;
-        gameData.Score = 0;
+        ResetGameData();
+        StartGame();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameData.IsGameActive)
+        {
+            gameData.CurrentTime -= Time.deltaTime;
+            if(gameData.CurrentTime <= 0.0f)
+            {
+                EndGame();
+            }
+        }
     }
 
     //move target when the score changes (i.e. target was hit)
@@ -33,5 +40,22 @@ public class GameManager : MonoBehaviour
             float randZ = Random.Range(-gameData.ZRange, gameData.ZRange);
             target.transform.position = new Vector3(targetPos.x, targetPos.y, randZ);
         }
+    }
+
+    void EndGame()
+    {
+        Debug.Log("Game over");
+    }
+
+    void ResetGameData()
+    {
+        gameData.Score = 0;
+        gameData.CurrentTime = gameData.MaxTime;
+    }
+
+    void StartGame()
+    {
+        gameData.IsGameActive = true;
+        gameData.CanShoot = true;
     }
 }

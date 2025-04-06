@@ -7,10 +7,13 @@ public class UIManager : MonoBehaviour
     GameData gameData;
     [SerializeField]
     TextMeshProUGUI scoreText;
+    [SerializeField]
+    TextMeshProUGUI timeText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
         gameData.OnScoreChange.AddListener(UpdateScore);
+        gameData.OnTimeChange.AddListener(UpdateTime);
     }
 
     void Start()
@@ -27,5 +30,10 @@ public class UIManager : MonoBehaviour
     private void UpdateScore()
     {
         scoreText.text = "Score: " + gameData.Score;
+    }
+
+    private void UpdateTime()
+    {
+        timeText.text = gameData.CurrentTime.ToString("F1");
     }
 }
