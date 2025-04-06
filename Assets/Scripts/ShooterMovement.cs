@@ -8,6 +8,11 @@ public class ShooterMovement : MonoBehaviour
     Vector2 moveInput = Vector2.zero;
     Vector3 movement = Vector3.zero;
 
+    private void Awake()
+    {
+        gameData.OnGameActiveChange.AddListener(ClearMovement);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -50,6 +55,14 @@ public class ShooterMovement : MonoBehaviour
         else if (pos.z < -gameData.ZRange)
         {
             gameObject.transform.position = new Vector3(pos.x, pos.y, -gameData.ZRange);
+        }
+    }
+
+    private void ClearMovement()
+    {
+        if(!gameData.IsGameActive)
+        {
+            moveInput = Vector2.zero;
         }
     }
 }

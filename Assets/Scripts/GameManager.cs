@@ -35,11 +35,8 @@ public class GameManager : MonoBehaviour
     //move target when the score changes (i.e. target was hit)
     void MoveTarget()
     {
-        if(gameData.IsGameActive)
-        {
-            float randZ = Random.Range(-gameData.ZRange, gameData.ZRange);
-            target.transform.position = new Vector3(targetPos.x, targetPos.y, randZ);
-        }
+        float randZ = Random.Range(-gameData.ZRange, gameData.ZRange);
+        target.transform.position = new Vector3(targetPos.x, targetPos.y, randZ);
     }
 
     void EndGame()
