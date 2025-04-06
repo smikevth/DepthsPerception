@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ba11fd4b236b245994ebaec71dac77, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  IsGameActive: 1
   CanShoot: 1
   ZRange: 10
   ZInc: 0.12
   ArrowSpeed: 36
   ArrowRange: 10
+  MaxTime: 5
+  OnGameActiveChange:
+    m_PersistentCalls:
+      m_Calls: []
   OnScoreChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTimeChange:
     m_PersistentCalls:
       m_Calls: []

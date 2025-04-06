@@ -44,6 +44,12 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
+        gameData.IsGameActive = false;
+        GameObject[] arrows = GameObject.FindGameObjectsWithTag("Arrow");
+        foreach(GameObject arrow in arrows)
+        {
+            Destroy(arrow);
+        }
         Debug.Log("Game over");
     }
 
@@ -57,5 +63,11 @@ public class GameManager : MonoBehaviour
     {
         gameData.IsGameActive = true;
         gameData.CanShoot = true;
+    }
+
+    public void RestartGame()
+    {
+        ResetGameData();
+        StartGame();
     }
 }

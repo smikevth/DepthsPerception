@@ -9,11 +9,16 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI scoreText;
     [SerializeField]
     TextMeshProUGUI timeText;
+    [SerializeField]
+    GameObject GameOverScreen;
+    [SerializeField]
+    TextMeshProUGUI finalScoreText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
         gameData.OnScoreChange.AddListener(UpdateScore);
         gameData.OnTimeChange.AddListener(UpdateTime);
+        gameData.OnGameActiveChange.AddListener(ShowHideGameOver);
     }
 
     void Start()
@@ -35,5 +40,14 @@ public class UIManager : MonoBehaviour
     private void UpdateTime()
     {
         timeText.text = gameData.CurrentTime.ToString("F1");
+    }
+
+    private void ShowHideGameOver()
+    {
+        GameOverScreen.SetActive(!gameData.IsGameActive);
+        if(!gameData.IsGameActive)
+        {
+            finalScoreText.text = "You hit " + gameData.Score + " targets!";
+        }
     }
 }
