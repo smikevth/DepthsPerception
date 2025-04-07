@@ -5,6 +5,7 @@ public class Shoot : MonoBehaviour
 {
     [SerializeField] GameData gameData;
     [SerializeField] GameObject arrowPrefab;
+    [SerializeField] AudioManager audioManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +24,7 @@ public class Shoot : MonoBehaviour
         {
             gameData.CanShoot = false;
             Instantiate(arrowPrefab, gameObject.transform.position, arrowPrefab.transform.rotation);
+            audioManager.PlaySound("Shoot");
         }
     }
 }

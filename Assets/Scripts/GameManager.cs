@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameData gameData;
     [SerializeField] GameObject target;
     Vector3 targetPos = new Vector3(); //position of target (just need x,y)
+    [SerializeField] AudioManager audioManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -35,6 +36,10 @@ public class GameManager : MonoBehaviour
     //move target when the score changes (i.e. target was hit)
     void MoveTarget()
     {
+        if(gameData.Score != 0)
+        {
+            audioManager.PlaySound("Hit");
+        }
         float randZ = Random.Range(-gameData.ZRange, gameData.ZRange);
         target.transform.position = new Vector3(targetPos.x, targetPos.y, randZ);
     }
