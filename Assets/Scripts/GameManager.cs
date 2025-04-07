@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,6 +7,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject target;
     Vector3 targetPos = new Vector3(); //position of target (just need x,y)
     [SerializeField] AudioManager audioManager;
+    [SerializeField] GameObject hitPFXPrefab;
+    private float pfxTime = 0.3f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -39,6 +42,8 @@ public class GameManager : MonoBehaviour
         if(gameData.Score != 0)
         {
             audioManager.PlaySound("Hit");
+            GameObject pfx = Instantiate(hitPFXPrefab, target.transform.position, hitPFXPrefab.transform.rotation);
+            StartCoroutine(DelayedDestroy(pfx, pfxTime));
         }
         float randZ = Random.Range(-gameData.ZRange, gameData.ZRange);
         target.transform.position = new Vector3(targetPos.x, targetPos.y, randZ);
@@ -76,5 +81,11 @@ public class GameManager : MonoBehaviour
     {
         ResetGameData();
         StartGame();
+    }
+
+    IEnumerator DelayedDestroy(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(obj);
     }
 }

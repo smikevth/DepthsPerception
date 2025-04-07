@@ -152,6 +152,7 @@ MonoBehaviour:
   gameData: {fileID: 11400000, guid: 9a174e55a3110874b886b068afa33fcf, type: 2}
   target: {fileID: 576339421}
   audioManager: {fileID: 133077740}
+  hitPFXPrefab: {fileID: 3767410762096075631, guid: cb8335a3291a8b9428ae385d887f85be, type: 3}
 --- !u!4 &133077739
 Transform:
   m_ObjectHideFlags: 0
