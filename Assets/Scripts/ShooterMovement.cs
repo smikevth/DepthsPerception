@@ -46,7 +46,7 @@ public class ShooterMovement : MonoBehaviour
     private void MovePlayer()
     {
         movement.z = moveInput.y;
-        gameObject.transform.Translate(movement * gameData.ZInc);
+        gameObject.transform.Translate(movement * gameData.ArcherSpeed);
         Vector3 pos = gameObject.transform.position;
         if (pos.z > gameData.ZRange)
         {

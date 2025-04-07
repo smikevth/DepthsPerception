@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanShoot: 1
   ZRange: 10
-  ZInc: 0.12
+  ArcherSpeed: 0.3
+  TargetSpeed: 0.1
   ArrowSpeed: 36
   ArrowRange: 10
-  MaxTime: 5
+  MaxTime: 60
   OnGameActiveChange:
     m_PersistentCalls:
       m_Calls: []

@@ -46,13 +46,18 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
+        if(gameData.Score > gameData.HighScore)
+        {
+            gameData.HighScore = gameData.Score;
+            gameData.NewHighScore = true;
+        }
         gameData.IsGameActive = false;
         GameObject[] arrows = GameObject.FindGameObjectsWithTag("Arrow");
         foreach(GameObject arrow in arrows)
         {
             Destroy(arrow);
         }
-        Debug.Log("Game over");
+
     }
 
     void ResetGameData()

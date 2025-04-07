@@ -13,6 +13,10 @@ public class UIManager : MonoBehaviour
     GameObject GameOverScreen;
     [SerializeField]
     TextMeshProUGUI finalScoreText;
+    [SerializeReference]
+    GameObject newHighScore;
+    [SerializeReference]
+    GameObject oldHighScore;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -48,6 +52,18 @@ public class UIManager : MonoBehaviour
         if(!gameData.IsGameActive)
         {
             finalScoreText.text = "You hit " + gameData.Score + " targets!";
+            if(gameData.NewHighScore)
+            {
+                gameData.NewHighScore = false;
+                newHighScore.SetActive(true);
+                oldHighScore.SetActive(false);
+            }
+            else
+            {
+                newHighScore.SetActive(false);
+                oldHighScore.SetActive(true);
+                oldHighScore.GetComponent<TextMeshProUGUI>().text = "High Score: " + gameData.HighScore;
+            }
         }
     }
 }

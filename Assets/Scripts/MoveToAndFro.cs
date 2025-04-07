@@ -15,10 +15,18 @@ public class MoveToAndFro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameData.IsGameActive)
+        //if game is going, move the object back and forth on the z-axis (starting after 7 hits)
+        if (gameData.IsGameActive && gameData.Score >= 7)
         {
-            //if game is going, move the object back and forth on the z-axis
-            gameObject.transform.Translate(direction * gameData.ZInc);
+            //increase speed after 14 hits
+            float speedF = 1.0f;
+            if(gameData.Score > 14)
+            {
+                speedF = (gameData.Score - 14.0f) / 6.6f + 1.0f;
+            }
+            Debug.Log(speedF);
+            
+            gameObject.transform.Translate(direction * gameData.TargetSpeed * speedF);
 
             if(Mathf.Abs(gameObject.transform.position.z) >= gameData.ZRange)
             {
